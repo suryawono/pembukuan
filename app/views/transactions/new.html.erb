@@ -1,0 +1,19 @@
+
+<%= form_for @transaction do |f| %>
+  <%= f.label "Kategori" %>
+  <%= f.grouped_collection_select(:category_id,@category_types,:categories,:name,:id,:name) %>
+  <br/>
+  <%= f.label "Sumber Dana" %>
+  <%= f.collection_select(:funding_source_id, FundingSource.all, :id, :name, {:include_blank => true}) %>
+  <br/>
+  <%= f.label "Tanggal" %>
+  <%= f.date_field :tanggal %>
+  <br/>
+  <%= f.label "Nominal" %>
+  <%= f.text_field :nominal %>
+  <br/>
+  <%= f.label "Keterangan" %>
+  <%= f.text_area :keterangan,cols: 30,rows: 10 %>
+  <br/>
+  <%= f.submit :submit %>
+<% end %>

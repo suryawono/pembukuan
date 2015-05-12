@@ -1,0 +1,47 @@
+<form action="#" role="form" class="form-horizontal panel-filter">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h6 class="panel-title">&nbsp;</h6>
+      <a href="<%= new_funding_source_path %>" class="pull-right btn btn-xs btn-default">Tambah<i class="icon-plus-circle2"></i></a>
+    </div>
+  </div>
+</form>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h6 class="panel-title"><%= @title %><i class="icon-table"></i></h6>
+  </div>
+  <div class="datatable-pagination">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            No.
+          </th>
+          <th>
+            Nama
+          </th>
+          <th>
+            Aksi
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @i=1 %>
+        <% @funding_sources.each do |c| %>
+          <tr>
+            <td>
+              <%= @i %>
+            </td>
+            <td>
+              <%= c.name %>
+            </td>
+            <td>
+              <%= button_to "Hapus", funding_source_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"} %>
+            </td>
+          </tr>
+          <% @i+=1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

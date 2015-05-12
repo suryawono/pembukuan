@@ -1,0 +1,9 @@
+<%= form_for @category do |f| %>
+  <%= f.label "Jenis Kategori" %>
+  <%= f.collection_select(:category_type_id, CategoryType.all, :id, :name, {:include_blank => true}) %>
+  <br/>
+  <%= f.label "Nama" %>
+  <%= f.text_field :name %>
+  <br/>
+  <%= f.submit :submit %>
+<% end %>

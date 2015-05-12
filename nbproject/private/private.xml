@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/pembukuan/app/views/layouts/application.html.erb</file>
+            <file>file:/D:/pembukuan/app/controllers/category_types_controller.rb</file>
+            <file>file:/D:/pembukuan/app/views/category_types/new.html.erb</file>
+            <file>file:/D:/pembukuan/app/assets/javascripts/application.js</file>
+            <file>file:/D:/pembukuan/app/views/category_types/edit.html.erb</file>
+            <file>file:/D:/pembukuan/app/views/category_types/index.html.erb</file>
+            <file>file:/D:/pembukuan/config/routes.rb</file>
+            <file>file:/D:/pembukuan/app/models/category_type.rb</file>
+            <file>file:/D:/pembukuan/app/views/category_types/show.html.erb</file>
+        </group>
+    </open-files>
+</project-private>

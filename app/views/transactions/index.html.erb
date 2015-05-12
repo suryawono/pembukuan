@@ -1,0 +1,71 @@
+<form action="#" role="form" class="form-horizontal panel-filter">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h6 class="panel-title">&nbsp;</h6>
+      <a href="<%= new_transaction_path %>" class="pull-right btn btn-xs btn-default">Tambah<i class="icon-plus-circle2"></i></a>
+    </div>
+  </div>
+</form>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h6 class="panel-title"><%= @title %><i class="icon-table"></i></h6>
+  </div>
+  <div class="datatable-pagination">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            No.
+          </th>
+          <th>
+            Kategori
+          </th>
+          <th>
+            Sumber Dana
+          </th>
+          <th>
+            Tanggal
+          </th>
+          <th>
+            Nominal
+          </th>
+          <th>
+            Keterangan
+          </th>
+          <th>
+            Aksi
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @i=1 %>
+        <% @transactions.each do |c| %>
+          <tr>
+            <td>
+              <%= @i %>
+            </td>
+            <td>
+              <%= c.category.name %>
+            </td>
+            <td>
+              <%= c.funding_source.name %>
+            </td>
+            <td>
+              <%= c.tanggal %>
+            </td>
+            <td>
+              <%= c.nominal %>
+            </td>
+            <td>
+              <%= c.keterangan %>
+            </td>
+            <td>
+              <%= button_to "Hapus", transaction_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"} %>
+            </td>
+          </tr>
+          <% @i+=1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
