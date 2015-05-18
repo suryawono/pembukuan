@@ -11,20 +11,63 @@
 </div>
 <script>
   $(document).ready(function() {
-    var sin = [], cos = [];
-    for (var i = 0; i < 16; i += 0.5) {
-      sin.push([i, Math.sin(i)]);
-      cos.push([i, Math.cos(i)]);
+    var transaksi = [];
+    transaksi['pemasukan'] = [];
+    transaksi['pengeluaran'] = [];
+    date = [];
+    var curr = new Date;
+    var first = curr.getDate();
+    date.push(first);
+    transaksi['pemasukan'][first] = 0;
+    transaksi['pengeluaran'][first] = 0;
+    for (var i = 1; i < 7; i++) {
+      var next = new Date(curr.getTime());
+      next.setDate(first - i);
+      date.push(next.getDate());
+      transaksi['pemasukan'][next.getDate()] = 0;
+      transaksi['pengeluaran'][next.getDate()] = 0;
     }
-    var plot = $.plot($("#simple_graph"),
-            [{data: sin, label: "sin(x)"}, {data: cos, label: "cos(x)"}], {
+
+    var dataPemasukan =<%= raw(@j.encode(@tujuh_hari_pemasukan)) %>;
+    for (var key in dataPemasukan) {
+      var dateParts = key.split("-");
+      var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0, 2));
+      var ind = jsDate.getDate();
+      transaksi['pemasukan'][ind] = dataPemasukan[key];
+    }
+
+
+    var dataPengeluaran =<%= raw(@j.encode(@tujuh_hari_pengeluaran)) %>;
+    for (var key in dataPengeluaran) {
+      var dateParts = key.split("-");
+      var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0, 2));
+      var ind = jsDate.getDate();
+      transaksi['pengeluaran'][ind] = dataPengeluaran[key];
+    }
+
+    var toPlotPemasukan = [];
+    var toPlotPengeluaran = [];
+    for (var key in transaksi['pemasukan']) {
+      toPlotPemasukan.push([key, transaksi['pemasukan'][key]]);
+    }
+
+    for (var key in transaksi['pengeluaran']) {
+      toPlotPengeluaran.push([key, transaksi['pengeluaran'][key]]);
+    }
+
+    console.log(toPlotPemasukan);
+    console.log(toPlotPengeluaran);
+    var plot = $.plot($("#tujuh_hari"),
+            [{data: toPlotPemasukan, label: "pengeluaran"}, {data: toPlotPengeluaran, label: "pemasukan"}], {
       colors: ["#ee7951", "#6db6ee", "#95c832", "#993eb7", "#3ba3aa"],
       series: {
         lines: {show: true}, points: {show: true}
       },
       grid: {hoverable: true, clickable: true},
-      yaxis: {min: -1.1, max: 1.1, font: {size: 11, lineHeight: 1, color: "#333333"}},
-      xaxis: {min: 0, max: 15}
+      yaxis: {font: {size: 11, lineHeight: 1, color: "#333333"}},
+      xaxis: {
+        tickSize: [1],
+      }
     });
 
     function showTooltip(x, y, contents, areAbsoluteXY) {
@@ -38,11 +81,11 @@
     ;
 
     var previousPoint = null;
-    $("#simple_graph").bind("plothover", function(event, pos, item) {
+    $("#tujuh_hari").bind("plothover", function(event, pos, item) {
       $("#x").text(pos.x.toFixed(2));
       $("#y").text(pos.y.toFixed(2));
 
-      if ($("#simple_graph").length > 0) {
+      if ($("#tujuh_hari").length > 0) {
         if (item) {
           if (previousPoint != item.dataIndex) {
             previousPoint = item.dataIndex;
@@ -52,7 +95,7 @@
                     y = item.datapoint[1].toFixed(2);
 
             showTooltip(item.pageX, item.pageY,
-                    item.series.label + " of " + x + " = " + y);
+                    item.series.label + " tanggal " + x + " = " + y);
           }
         }
         else {
@@ -61,13 +104,5 @@
         }
       }
     });
-
-    $("#simple_graph").bind("plotclick", function(event, pos, item) {
-      if (item) {
-        $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
-        plot.highlight(item.series, item.datapoint);
-      }
-    });
   });
-
 </script>

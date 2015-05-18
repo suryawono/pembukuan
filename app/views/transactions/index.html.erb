@@ -48,7 +48,7 @@
               <%= c.category.name %>
             </td>
             <td>
-              <%= c.funding_source.name %>
+              <%= c.funding_source.name if c.funding_source %>
             </td>
             <td>
               <%= c.tanggal %>

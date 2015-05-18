@@ -7,7 +7,7 @@
   <%= f.collection_select(:funding_source_id, FundingSource.all, :id, :name, {:include_blank => true}) %>
   <br/>
   <%= f.label "Tanggal" %>
-  <%= f.date_field :tanggal %>
+  <%= f.date_field :tanggal, :value => Time.now.strftime('%Y-%m-%d') %>
   <br/>
   <%= f.label "Nominal" %>
   <%= f.text_field :nominal %>
