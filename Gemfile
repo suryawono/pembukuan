@@ -52,3 +52,5 @@ gem 'respond_to'
 gem 'responders'
 
 gem 'render_csv', '~> 2.0.0'
+
+gem 'filterrific'

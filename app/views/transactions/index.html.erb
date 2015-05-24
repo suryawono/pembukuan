@@ -1,17 +1,43 @@
-<form action="#" role="form" class="form-horizontal panel-filter">
+<div class="form-horizontal panel-filter">
   <div class="panel panel-info">
     <div class="panel-heading">
+      <span class="pull-left btn btn-xs btn-default toggle-bar" style="margin-left:5px" data-toggle-target="filter"><i class="icon-filter"></i>Filter</span>
       <span class="pull-left btn btn-xs btn-default toggle-bar" style="margin-left:5px" data-toggle-target="export"><i class="icon-bubble-forward"></i>Export</span>
       <h6 class="panel-title">&nbsp;</h6>
       <a href="<%= new_transaction_path %>" class="pull-right btn btn-xs btn-default"><i class="icon-plus-circle2"></i>Tambah</a>
     </div>
+
+    <div class="panel-body toggle-target" style="display:none" data-toggle-id="filter">
+      <%= form_for_filterrific @filterrific,:class=>'form-horizontal panel-filter' do |f| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-4 control-label">Kategori</label>
+              <div class="col-md-8">
+                <%=  f.select :with_category_id,
+                  @filterrific.select_options[:with_category_id],
+                  { :include_blank => '- Any -' },
+                  { :class => 'form-control' }%>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+          </div>
+        </div>
+        <div class="form-actions text-right">
+          <%= f.submit "Filter", :class => 'btn btn-info btn-filter', :id => 'formButton' %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="panel-body toggle-target" style="display:none" data-toggle-id="export">
       <div class="form-actions">
         <a href="<%= transactions_path+".csv" %>"><span class="btn btn-default btn-xs" style="margin-left:5px"><i class="icon-file-excel"></i>CSV</span></a>
       </div>
     </div>
   </div>
-</form>
+</div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h6 class="panel-title"><%= @title %><i class="icon-table"></i></h6>

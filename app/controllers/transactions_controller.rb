@@ -2,7 +2,14 @@ class TransactionsController < ApplicationController
   
   def index
     @title = "Transaksi"
-    @transactions=Transaction.all
+    @filterrific = initialize_filterrific(
+      Transaction,
+      params[:filterrific],
+      :select_options => {
+        with_category_id: Category.options_for_select
+      }
+    ) or return
+    @transactions = @filterrific.find
     respond_to do |format|
       format.html
       format.xlsx {

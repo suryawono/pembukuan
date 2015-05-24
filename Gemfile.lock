@@ -61,6 +61,8 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     htmlentities (4.3.3)
@@ -162,6 +164,7 @@ DEPENDENCIES
   axlsx
   byebug
   coffee-rails (~> 4.1.0)
+  filterrific
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
