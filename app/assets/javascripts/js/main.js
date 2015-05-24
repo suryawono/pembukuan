@@ -6,17 +6,13 @@
 
 
 $(document).ready(function() {
-//    $("a[data-confirm]").on("click", function(e) {
-//        $this = $(this);
-//        e.preventDefault();
-//        url=$this.attr("href");
-//        if (confirm($this.data("confirm"))) {
-//            $.ajax({
-//                url: url,
-//                type: "DELETE"
-//            }).done(function() {
-//                window.location.href = url;
-//            });
-//        }
-//    });
+    filterReload();
 })
+
+function filterReload() {
+    $(".toggle-bar").click(function() {
+        var target = $(this).data("toggle-target");
+        $(".toggle-target").not("*[data-toggle-id='" + target + "']").hide();
+        $("*[data-toggle-id='" + target + "']").slideToggle();
+    })
+}

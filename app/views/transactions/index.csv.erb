@@ -1,0 +1,8 @@
+<% headers = ['No', 'Kategori','Sumber Dana','Tanggal','Nominal','Keterangan'] %>
+<%= CSV.generate_line headers %>
+<% @i=1 %>
+<% @transactions.each do |c| %>
+  <% sumber=c.funding_source.name if c.funding_source %>
+  <%= CSV.generate_line([@i,c.category.name,sumber,c.tanggal,c.nominal,c.keterangan]) %>
+  <% @i=@i+1 %>
+<% end %>

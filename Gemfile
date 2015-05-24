@@ -42,3 +42,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem	'axlsx'
+
+gem	'acts_as_xlsx'
+
+gem 'respond_to'
+
+gem 'responders'
+
+gem 'render_csv', '~> 2.0.0'

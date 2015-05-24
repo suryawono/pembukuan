@@ -1,7 +1,18 @@
 class TransactionsController < ApplicationController
-   def index
+  
+  def index
     @title = "Transaksi"
     @transactions=Transaction.all
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        #        send_data Transaction.to_xlsx, :filename => 'transaksi.xlsx', :type => "application/vnd.openxmlformates-officedocument.spreadsheetml.sheet"
+      }
+      format.csv{
+        headers['Content-Disposition'] = "attachment; filename=\"transaksi.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      }
+    end
   end
 
   def new
