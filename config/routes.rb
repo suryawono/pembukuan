@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  root :to => 'users#dashboard'
+  root :to => 'users#login'
+  
+  get 'dashboard' => "users#dashboard", as: :dashboard
   
   resources :category_types, :categories, :funding_sources, :transactions
   # The priority is based upon order of creation: first created -> highest priority.

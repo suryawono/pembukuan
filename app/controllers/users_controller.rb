@@ -7,4 +7,8 @@ class UsersController < ApplicationController
     @tujuh_hari_pengeluaran=Transaction.joins(:category).where('tanggal >= ?', Time.zone.now - 7.days).where("categories.category_type_id = 11").group(:tanggal).sum(:nominal)
   end
   
+  def login
+    render :layout => "login"
+  end
+  
 end

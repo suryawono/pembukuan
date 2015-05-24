@@ -60,7 +60,7 @@
               <%= c.keterangan %>
             </td>
             <td>
-              <%= button_to "Hapus", transaction_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"} %>
+              <%= button_to "Hapus", transaction_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"}, :class => 'btn btn-danger' %>
             </td>
           </tr>
           <% @i+=1 %>

@@ -58,7 +58,7 @@
     console.log(toPlotPemasukan);
     console.log(toPlotPengeluaran);
     var plot = $.plot($("#tujuh_hari"),
-            [{data: toPlotPemasukan, label: "pengeluaran"}, {data: toPlotPengeluaran, label: "pemasukan"}], {
+            [{data: toPlotPengeluaran, label: "pengeluaran"}, {data: toPlotPemasukan, label: "pemasukan"}], {
       colors: ["#ee7951", "#6db6ee", "#95c832", "#993eb7", "#3ba3aa"],
       series: {
         lines: {show: true}, points: {show: true}
@@ -91,7 +91,7 @@
             previousPoint = item.dataIndex;
 
             $("#tooltip").remove();
-            var x = item.datapoint[0].toFixed(2),
+            var x = item.datapoint[0].toFixed(0),
                     y = item.datapoint[1].toFixed(2);
 
             showTooltip(item.pageX, item.pageY,

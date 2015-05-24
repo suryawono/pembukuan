@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>Pembukuan - <%= @title %> </title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'css/bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'css/londinium-theme', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'css/styles', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'css/icons', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <%= javascript_include_tag 'js/plugins/charts/sparkline.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/flot', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/flot.orderbars', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/flot.pie', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/flot.time', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/excanvas.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/charts/flot.resize.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/uniform.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/select2.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/inputmask', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/autosize', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/inputlimit.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/listbox', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/multiselect', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/validate.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/tags.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/switch.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/uploader/plupload.full.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/uploader/plupload.queue.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/wysihtml5/wysihtml5.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/forms/wysihtml5/toolbar', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/daterangepicker', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/fancybox.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/moment', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/jgrowl.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/datatables.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/colorpicker', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/fullcalendar.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/plugins/interface/timepicker.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/bootstrap.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/jquery.restfulizer', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'js/main', 'data-turbolinks-track' => true %>
+
+  </head>
+
+  <body>
+
+
+    <!-- Page content -->
+    <div class="page-content">
+      <%= yield %>
+    </div>
+    <!-- /page content -->
+
+
+  </div>
+  <!-- /page container -->
+
+</body>
+</html>

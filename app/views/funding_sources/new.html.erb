@@ -1,6 +1,20 @@
 <%= form_for @funding_source do |f| %>
-  <%= f.label "Nama" %>
-  <%= f.text_field :name %>
-  <br/>
-  <%= f.submit :submit %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h6 class="panel-title"><i class="icon-bubble4"></i>Tambah Sumber Dana</h6>
+    </div>
+
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label "Nama", :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= f.text_field :name, :class => 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions text-right">
+    <%= f.submit :submit, :class => 'btn btn-primary', :id => 'formButton' %>
+  </div>
 <% end %>

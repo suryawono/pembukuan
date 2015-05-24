@@ -36,7 +36,7 @@
               <%= c.name %>
             </td>
             <td>
-              <%= button_to "Hapus", funding_source_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"} %>
+              <%= button_to "Hapus", funding_source_path(c), :method => :delete, :data => {confirm: "Yakin menghapus??"}, :class => 'btn btn-danger' %>
             </td>
           </tr>
           <% @i+=1 %>

@@ -56,7 +56,7 @@
     <!-- Navbar -->
     <div class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Pembukuan</a>
+        <a class="navbar-brand" href="http://localhost:3000/dashboard">Pembukuan</a>
         <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
           <span class="sr-only">Toggle navbar</span>
@@ -277,10 +277,12 @@
 
           <!-- Main navigation -->
           <ul class="navigation">
+            <li class=""><a href="http://localhost:3000/dashboard"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
             <li class=""><a href="<%= transactions_path %>"><span>Transaksi</span> <i class="icon-screen2"></i></a></li>
             <li class=""><a href="<%= category_types_path %>"><span>Jenis Kategori</span> <i class="icon-screen2"></i></a></li>
             <li class=""><a href="<%= categories_path %>"><span>Kategori</span> <i class="icon-screen2"></i></a></li>
             <li class=""><a href="<%= funding_sources_path %>"><span>Sumber Dana</span> <i class="icon-screen2"></i></a></li>
+            <li class=""><a href="http://localhost:3000"><span>Log Out</span> <i class="icon-screen2"></i></a></li>
           </ul>
           <!-- /main navigation -->
 
