@@ -9,6 +9,7 @@ class Transaction < ActiveRecord::Base
                 maximal_nominal
                 awal_tanggal
                 akhir_tanggal
+                sorted_by
   ]
   
   scope :with_category_id, lambda { |category_ids|
@@ -23,11 +24,33 @@ class Transaction < ActiveRecord::Base
     where("nominal <= ?",maximal_nominal)
   }
   
-   scope :awal_tanggal, lambda{ |awal_tanggal|
+  scope :awal_tanggal, lambda{ |awal_tanggal|
     where("tanggal >= ?",awal_tanggal)
   }
   
   scope :akhir_tanggal, lambda{ |akhir_tanggal|
     where("tanggal <= ?",akhir_tanggal)
   }
+  
+  scope :sorted_by, lambda { |sort_option|
+    # extract the sort direction from the param value.
+    direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+    case sort_option.to_s
+    when /^tanggal_/
+      order("transactions.tanggal #{ direction }")
+    when /^nominal_/
+      order("transactions.nominal #{ direction }")
+    else
+      raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+    end
+  }
+  
+  def self.options_for_sorted_by
+    [
+      ['Tanggal (Paling baru)', 'tanggal_desc'],
+      ['Tanggal (Paling lama)', 'tanggal_asd'],
+      ['Nominal (Paling besar)', 'nominal_desc'],
+      ['Nominal (Paling kecil)', 'nominal_asc'],
+    ]
+  end
 end

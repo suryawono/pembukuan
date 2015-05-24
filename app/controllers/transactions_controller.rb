@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
       Transaction,
       params[:filterrific],
       :select_options => {
+        sorted_by: Transaction.options_for_sorted_by,
         with_category_id: Category.options_for_select
       }
     ) or return

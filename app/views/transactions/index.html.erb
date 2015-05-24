@@ -22,6 +22,15 @@
             </div>
           </div>
           <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-4 control-label">Urutkan</label>
+              <div class="col-md-8">
+                <%=  f.select :sorted_by,
+                  @filterrific.select_options[:sorted_by],
+                {},
+                  { :class => 'form-control' }%>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
