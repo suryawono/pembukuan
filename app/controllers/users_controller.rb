@@ -8,6 +8,13 @@ class UsersController < ApplicationController
   end
   
   def login
+    @title="Login"
+    render :layout => "login"
+  end
+  
+  def register
+    @title="Register"
+    @account=Account.new
     render :layout => "login"
   end
   

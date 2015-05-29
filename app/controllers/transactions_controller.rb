@@ -35,16 +35,16 @@ class TransactionsController < ApplicationController
   def create
     @transaction=Transaction.new(params_transaction)
     @transaction.save
-    flash[:notice]="Berhasil ditambahkan"
+    flash[:success]="Berhasil ditambahkan"
     redirect_to :action => :index
   end
   
   def destroy
     @transaction=Transaction.find(params[:id])
     if @transaction.destroy
-      flash[:notice] = "Berhasil menghapus transaksi"
+      flash[:success] = "Berhasil menghapus transaksi"
     else
-      flash[:notice] = "Gagal menghapus transaksi"
+      flash[:danger] = "Gagal menghapus transaksi"
     end
     redirect_to :action => :index
   end

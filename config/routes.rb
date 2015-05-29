@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
-  root :to => 'users#login'
+  root :to => 'users#login', as: :login
   
+  get 'register' => "users#register", as: :register
   get 'dashboard' => "users#dashboard", as: :dashboard
   
-  resources :category_types, :categories, :funding_sources, :transactions
+  resources :category_types, :categories, :funding_sources, :transactions, :accounts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
